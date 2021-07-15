@@ -51,3 +51,12 @@ function getSlider() {
 	document.getElementById("val").innerHTML = thresh;
 	setCookie("thresh", slider.value, 15)
 }
+
+function showSettings() {
+	var x = document.getElementById("settings");
+  	if (x.style.display === "none") {
+    		x.style.display = "block";
+  	} else {
+    		x.style.display = "none";
+  	}
+}
