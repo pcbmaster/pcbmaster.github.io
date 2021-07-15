@@ -2,7 +2,6 @@ var mic;
 var active;
 var inactive;
 var slider;
-var output;
 var thresh = 0.005;
 
 function setup(){
@@ -11,7 +10,6 @@ function setup(){
 	mic.start();
 	slider = document.getElementById("slider");
 	slider.onInput = sliderMoved();
-	output = document.getElementById("val");
 	
 	active = loadImage('active.png');
 	//active.play();
@@ -30,7 +28,7 @@ function draw(){
 
 function sliderMoved() {
 	thresh = slider.value;
-	output.innerHTML = thresh;
+	document.getElementById("val").innerHTML = thresh;
 }
 
 function touchStarted() {
