@@ -1,16 +1,19 @@
 var mic;
 var active;
 var inactive;
+
 function setup(){
 	createCanvas(700, 700);
 	mic = new p5.AudioIn();
 	mic.start();
+	getAudioContext().resume();
 	
 	active = loadImage('active.png');
 	//active.play();
 	//active.loop();
 	inactive = loadImage('inactive.png');
 }
+
 function draw(){
 	
 	vol = mic.getLevel();
