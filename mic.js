@@ -7,10 +7,6 @@ function setup(){
 	createCanvas(700, 700);
 	mic = new p5.AudioIn();
 	mic.start();
-	slider = ;
-	slider.onInput = function() {
-		
-	}
 	
 	active = loadImage('active.png');
 	//active.play();
