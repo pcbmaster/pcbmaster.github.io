@@ -24,6 +24,7 @@ function setup(){
 	
 	if(getCookieValue("thresh") != "") {
 		thresh = parseFloat(getCookieValue("thresh"))
+		document.getElementById("slider").value = thresh
 	}
 	active = loadImage('active.png');
 	//active.play();
