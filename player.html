@@ -1,11 +1,23 @@
 <html>
   <head>
+	  <style>
+	.button {
+ 		background-color: #00ff00;
+  		border: none;
+  		color: white;
+  		text-decoration: none;
+  		display: inline-block;
+	}
+</style>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.js" integrity="sha512-U2sgwrFhl+Tgx9iGH9h5Ba2WyIjyCes+D0prtIFw3a0V+/fkaeL5Cd/VjyPHno9kUPE1rnNhBGTyvtZsfJp0xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	  <script language="javascript" type="text/javascript" src="mic.js"></script>
   </head>
   <body>
-	  <input id="slider" type="range" min="0" max="0.02" step="0.001" value="0.005" oninput="getSlider()">
-	  <span id="val"></span>
+	  <button class="button">
+	  <span id="settings" style="display: none;">
+	  	<input id="slider" type="range" min="0" max="0.02" step="0.001" value="0.005" oninput="getSlider()">
+	  	<span id="val"></span>
+	  </span>
   </body>
 </html>
