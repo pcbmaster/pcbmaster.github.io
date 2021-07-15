@@ -18,7 +18,7 @@ function draw(){
 	vol = mic.getLevel();
 	background(0, 255, 0);
 	image(inactive, 10, 10);
-	if (vol >= 0.000022) {
+	if (vol >= 0.003) {
 		image(active, 10, 10);
 	}
 }
