@@ -1,17 +1,15 @@
 var mic;
 var active;
 var inactive;
-var slider;
 var thresh = 0.005;
 
 function setup(){
 	createCanvas(700, 700);
 	mic = new p5.AudioIn();
 	mic.start();
-	slider = document.getElementById("slider");
+	slider = ;
 	slider.onInput = function() {
-		thresh = slider.value;
-		document.getElementById("val").innerHTML = thresh;
+		
 	}
 	
 	active = loadImage('active.png');
@@ -31,4 +29,10 @@ function draw(){
 
 function touchStarted() {
   getAudioContext().resume();
+}
+
+function getSlider() {
+	var slider = document.getElementById("slider")
+	thresh = slider.value;
+	document.getElementById("val").innerHTML = thresh;
 }
