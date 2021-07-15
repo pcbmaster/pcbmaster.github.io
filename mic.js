@@ -6,7 +6,6 @@ function setup(){
 	createCanvas(700, 700);
 	mic = new p5.AudioIn();
 	mic.start();
-	getAudioContext().resume();
 	
 	active = loadImage('active.png');
 	//active.play();
@@ -22,4 +21,8 @@ function draw(){
 	if (vol >= 0.000022) {
 		image(active, 10, 10);
 	}
+}
+
+function touchStarted() {
+  getAudioContext().resume();
 }
