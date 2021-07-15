@@ -9,7 +9,10 @@ function setup(){
 	mic = new p5.AudioIn();
 	mic.start();
 	slider = document.getElementById("slider");
-	slider.onInput = sliderMoved();
+	slider.onInput = function() {
+		thresh = slider.value;
+		document.getElementById("val").innerHTML = thresh;
+	}
 	
 	active = loadImage('active.png');
 	//active.play();
@@ -24,11 +27,6 @@ function draw(){
 	if (vol >= thresh) {
 		image(active, 10, 10);
 	}
-}
-
-function sliderMoved() {
-	thresh = slider.value;
-	document.getElementById("val").innerHTML = thresh;
 }
 
 function touchStarted() {
