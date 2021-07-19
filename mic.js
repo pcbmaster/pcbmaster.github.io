@@ -18,7 +18,7 @@ function setCookie(name,value,days) {
 }
 
 function setup(){
-	createCanvas(700, 700);
+	createCanvas(1100, 1300);
 	mic = new p5.AudioIn();
 	mic.start();
 	
@@ -26,10 +26,10 @@ function setup(){
 		thresh = parseFloat(getCookieValue("thresh"))
 		document.getElementById("slider").value = thresh
 	}
-	active = loadImage('active.png');
+	active = loadImage('vtuber-joey1-open.png');
 	//active.play();
 	//active.loop();
-	inactive = loadImage('inactive.png');
+	inactive = loadImage('vtuber-joey1-closed.png');
 }
 
 function draw(){
