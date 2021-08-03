@@ -2,6 +2,10 @@ var mic;
 var active;
 var inactive;
 var thresh = 0.005;
+var usingLocal = false;
+
+const ACTIVE_LOCAL_IMAGE = "activelocal";
+const NEUTRAL_LOCAL_IMAGE = "neutrallocal";
 
 const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
@@ -59,4 +63,18 @@ function showSettings() {
   	} else {
     		x.style.display = "none";
   	}
+}
+
+function readURL(input) {
+	document.getElementById("bannerImg").style.display = "block";
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            console.log(e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
