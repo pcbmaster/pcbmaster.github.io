@@ -66,8 +66,6 @@ function showSettings() {
 }
 
 function readURL(input) {
-	document.getElementById("bannerImg").style.display = "block";
-
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
