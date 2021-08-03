@@ -3,9 +3,11 @@ var active;
 var inactive;
 var thresh = 0.005;
 var usingLocal = false;
+var localActive = "";
+var localNeutral = "";
 
-const ACTIVE_LOCAL_IMAGE = "activelocal";
-const NEUTRAL_LOCAL_IMAGE = "neutrallocal";
+const ACTIVE_IMAGE = "uploadActive";
+const NEUTRAL_IMAGE = "uploadNeutral";
 
 const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
@@ -25,15 +27,32 @@ function setup(){
 	createCanvas(1100, 1300);
 	mic = new p5.AudioIn();
 	mic.start();
+	lookForLocal();
 	
 	if(getCookieValue("thresh") != "") {
-		thresh = parseFloat(getCookieValue("thresh"))
-		document.getElementById("slider").value = thresh
+		thresh = parseFloat(getCookieValue("thresh"));
+		document.getElementById("slider").value = thresh;
 	}
-	active = loadImage('vtuber-joey1-open.png');
-	//active.play();
-	//active.loop();
-	inactive = loadImage('vtuber-joey1-closed.png');
+	if (usingLocal) {
+		active = loadImage(localActive);
+		inactive = loadImage(localNeutral);
+	} else {
+		active = loadImage('vtuber-joey1-open.png');
+		//active.play();
+		//active.loop();
+		inactive = loadImage('vtuber-joey1-closed.png');
+	}
+}
+
+function lookForLocal() {
+	var tempActive = localStorage.getItem(ACTIVE_IMAGE);
+	var tempNeutral = localStorage.getItem(NEUTRAL_IMAGE);
+	
+	if (tempActive != null && tempNeutral != null) {
+		usingLocal = true;
+		localActive = tempActive;
+		localNeutral = tempNeutral;
+	}
 }
 
 function draw(){
@@ -71,6 +90,7 @@ function readURL(input) {
 
         reader.onload = function (e) {
             console.log(e.target.result);
+			localStorage.setItem(input.id, e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
